@@ -7,6 +7,15 @@ public class HomingMissile : MonoBehaviour
     [SerializeField] private float speed;
 
     [SerializeField] private Transform targetTransform;
+    private GameObject ob;
+    private void Start()
+    {
+        if (targetTransform == null) 
+        {
+            ob = GameObject.FindWithTag("Spaceship");
+            targetTransform = ob.transform;
+        }
+    }
     private void Update()
     {
         var step =  speed * Time.deltaTime;
